@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat_flutter/screens/login_screen.dart';
 import 'package:flash_chat_flutter/screens/registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'components/rounded_button.dart';
+// import 'package:firebase_core/firebase_core.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const id = 'welcome_screen';
@@ -19,11 +21,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   void initState() {
     super.initState();
+    Firebase.initializeApp();
     controller = AnimationController(
         vsync:
             this // this it refers to the class 'with SingleTickerProviderStateMixin'
         ,
-        duration: Duration(seconds: 3));
+        duration: Duration(seconds: 2));
 
     animation = CurvedAnimation(parent: controller, curve: Curves.bounceOut);
 
